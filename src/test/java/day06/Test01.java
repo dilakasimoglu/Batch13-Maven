@@ -1,8 +1,13 @@
 package day06;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class Test01 {
     /*
@@ -51,5 +56,18 @@ public class Test01 {
         if (currentUrl.contains("walmart.com")){
             System.out.println("URL testi PASS");
         } else System.out.println("URL testi FAILED");
+        // 8-”Nutella” icin arama yapiniz
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        WebElement aramaCubugu=driver.findElement(By.cssSelector("input[id='global-search-input']"));
+        String aramaKelimesi = "Nutella";
+        aramaCubugu.sendKeys(aramaKelimesi+ Keys.ENTER);
+
+        //9- Kac sonuc bulundugunu yaziniz
+        WebElement sonucYazisi=driver.findElement(By.className("result-summary-container"));
+        System.out.println(sonucYazisi.getText());
+
+        //10-Sayfayi kapatin
+        driver.close();
+
     }
 }
