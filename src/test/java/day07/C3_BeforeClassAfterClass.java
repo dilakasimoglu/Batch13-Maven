@@ -32,7 +32,7 @@ public class C3_BeforeClassAfterClass {
         System.out.println("1.metot calisti");
     }
 
-    @Test
+    @Test @Ignore
     public void test02()  {
         driver.get("https://www.amazon.com");
         System.out.println("2.metot calisti");
